@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+</head>
+<body>
+    <center>
+        <h2>Event Registration</h2>
+
+        <form id="eventForm">
+            <input name="fullname" placeholder="Full Name" required><br><br>
+            <input name="email" type="email" placeholder="Email Address" required><br><br>
+
+            <label for="event">Select Event:</label><br>
+            <select id="event" name="event" required>
+                <option value="" disabled selected>Select an event</option>
+                <option value="workshop">Workshop</option>
+                <option value="seminar">Seminar</option>
+                <option value="meetup">Meetup</option>
+            </select><br><br>
+
+            <label for="timeslot">Select Time Slot:</label><br>
+            <select id="timeslot" name="timeslot" required>
+                <option value="" disabled selected>Select a time slot</option>
+                <option value="morning">Morning (9 AM - 12 PM)</option>
+                <option value="afternoon">Afternoon (1 PM - 4 PM)</option>
+                <option value="evening">Evening (5 PM - 8 PM)</option>
+            </select><br><br>
+
+            <button 
+                type="button" 
+                onclick="showMessage()" 
+                style="background-color: green; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+                Register
+            </button>
+        </form>
+
+        <p id="message" style="color: green;"></p>
+    </center>
+
+    <script>
+        function showMessage() {
+            const form = document.getElementById('eventForm');
+            if (form.checkValidity()) {
+                document.getElementById("message").textContent = "Successfully registered for the event!";
+            } else {
+                form.reportValidity();
+            }
+        }
+    </script>
+</body>
+</html>
